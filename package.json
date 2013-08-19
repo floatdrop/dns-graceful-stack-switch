@@ -24,6 +24,8 @@
     "synchronous"
   ],
   "dependencies" : {
+	  "sync": "*",
+	  "lodash": "*"
   },
   "analyze": false,
   "devDependencies": {
