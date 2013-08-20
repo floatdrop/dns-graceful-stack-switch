@@ -21,11 +21,13 @@
   "keywords": [
     "dns",
     "sync",
-    "synchronous"
+    "synchronous",
+	"synchronously",
+	"resolve"
   ],
   "dependencies" : {
-	  "sync": "*",
-	  "lodash": "*"
+	"ffi": "=1.2.5",
+	"lodash": "*"
   },
   "analyze": false,
   "devDependencies": {
