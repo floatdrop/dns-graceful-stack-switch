@@ -1,6 +1,6 @@
 var dns = require('dns');
 var _ = require('lodash');
-var sync = require('sync');
+var sync = require('synchronize');
 var dnsSync = module.exports;
 
 var methods = [
@@ -8,7 +8,7 @@ var methods = [
 	"resolve",
 	"resolve4",
 	"resolve6",
-	"resolveM",
+	//"resolveM",
 	"resolveTxt",
 	"resolveSrv",
 	"resolveNs",
@@ -17,7 +17,12 @@ var methods = [
 ];
 
 _(methods).each(function(methodName) {
-	dnsSync[methodName] = function() {
-		return _(dns[methodName]).partial(arguments).sync();
-	};
+	dnsSync[methodName] = sync(dns, methodName);
+	/*function() {
+		var self = this;
+		var args = arguments;
+		var response;
+		response = dns[methodName].sync(self, args[1]);
+		return response;
+	};*/
 });
