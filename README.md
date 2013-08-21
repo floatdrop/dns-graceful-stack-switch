@@ -5,7 +5,7 @@ Monkey patch DNS lookup method for node.js.
 
 ### Why?
 
-If you used node dns module with disabled IPv4 - you got exception (ENETUNREACH), but ```ping6 __address__``` working fine. 
+If you used node.js with disabled IPv4 - you got exception (ENETUNREACH) in most of network operations, but ```ping6 address``` working fine. 
 
 To fix this error with minimal amount of code (you still can use [```dns.resolve6```](http://nodejs.org/docs/v0.8.25/api/dns.html#dns_dns_resolve6_domain_callback) and get valid IPv6 addresses) - monkey patched lookup method was written.
 
