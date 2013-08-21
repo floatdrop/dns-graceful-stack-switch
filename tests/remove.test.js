@@ -9,6 +9,7 @@ describe("Test removing", function() {
 	it('resolve4 should resolve yandex.ru into same address as dns module', function(done) {
 		require('..')(null, true);
 		dns.resolve4('www.yandex.ru', function(err, addresses) {
+			expect(err).to.not.exist;
 			addresses.sort();
 			expect(addresses).to.eql(ipv4);
 			done(err);
@@ -18,6 +19,7 @@ describe("Test removing", function() {
 	it('resolve6 yandex.ru into same address as dns module', function(done) {
 		require('..')(null, true);
 		dns.resolve6('www.yandex.ru', function(err, addresses) {
+			expect(err).to.not.exist;
 			addresses.sort();
 			expect(addresses).to.eql(ipv6);
 			done(err);
