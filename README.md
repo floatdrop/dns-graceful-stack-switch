@@ -12,9 +12,7 @@ To fix this error with minimal amount of code (you still can use [```dns.resolve
 ### How?
 
 ```javascript
-
 require('dns-gracefull-stack-switch')(6);
-
 ```
 
 This module returns function, with one argument: default IP stack version. After executing dns.lookup will be loaded with ```require``` and ```lookup``` method will be replaced.
