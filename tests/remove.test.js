@@ -1,6 +1,8 @@
 var expect = require('chai').expect;
 var dns = require('dns');
 
+var host = "www.google.com";
+
 var ipv4;
 var ipv6;
 
@@ -8,7 +10,7 @@ describe("Test removing", function() {
 
 	it('resolve4 should resolve yandex.ru into same address as dns module', function(done) {
 		require('..')(null, true);
-		dns.resolve4('www.yandex.ru', function(err, addresses) {
+		dns.resolve4(host, function(err, addresses) {
 			expect(err).to.not.exist;
 			expect(addresses).to.exist;
 			addresses.sort();
@@ -19,7 +21,7 @@ describe("Test removing", function() {
 
 	it('resolve6 yandex.ru into same address as dns module', function(done) {
 		require('..')(null, true);
-		dns.resolve6('www.yandex.ru', function(err, addresses) {
+		dns.resolve6(host, function(err, addresses) {
 			expect(err).to.not.exist;
 			expect(addresses).to.exist;
 			addresses.sort();
@@ -31,7 +33,7 @@ describe("Test removing", function() {
 	before(function(done) {
 		var tasks = 2;
 
-		dns.resolve4('www.yandex.ru', function(err, addresses) {
+		dns.resolve4(host, function(err, addresses) {
 			if (err) done(err);
 			ipv4 = addresses;
 			ipv4.sort();
@@ -39,7 +41,7 @@ describe("Test removing", function() {
 			if (!tasks) done();
 		});
 
-		dns.resolve6('www.yandex.ru', function(err, addresses) {
+		dns.resolve6(host, function(err, addresses) {
 			if (err) done(err);
 			ipv6 = addresses;
 			ipv6.sort();
