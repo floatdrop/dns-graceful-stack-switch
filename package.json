@@ -1,9 +1,9 @@
 {
-  "name": "dns-sync",
+  "name": "dns-gracefull-stack-switch",
   "preferGlobal": false,
   "version": "0.0.1",
   "author": "Vsevolod Strukchinsky <floatdrop@gmail.com>",
-  "description": "synchronous API for node dps module",
+  "description": "gracefull stack switching in dns.lookup",
   "contributors": [ 
     {
       "name": "Vsevolod Strukchinsky",
@@ -16,17 +16,16 @@
   "main": "index",
   "repository": {
     "type": "git",
-    "url": "https://github.com/floatdrop/dns-sync.git"
+    "url": "https://github.com/floatdrop/dns-gracefull-stack-switch.git"
   },
   "keywords": [
     "dns",
-    "sync",
-    "synchronous",
-	"synchronously",
-	"resolve"
+	"IPv6",
+	"IPv4",
+	"stack",
+	"ENETUNREACH"
   ],
   "dependencies" : {
-	"ffi": "=1.2.5",
 	"lodash": "*"
   },
   "analyze": false,
