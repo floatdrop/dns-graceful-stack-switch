@@ -10,6 +10,7 @@ describe("Test removing", function() {
 		require('..')(null, true);
 		dns.resolve4('www.yandex.ru', function(err, addresses) {
 			expect(err).to.not.exist;
+			expect(addresses).to.exist;
 			addresses.sort();
 			expect(addresses).to.eql(ipv4);
 			done(err);
@@ -20,6 +21,7 @@ describe("Test removing", function() {
 		require('..')(null, true);
 		dns.resolve6('www.yandex.ru', function(err, addresses) {
 			expect(err).to.not.exist;
+			expect(addresses).to.exist;
 			addresses.sort();
 			expect(addresses).to.eql(ipv6);
 			done(err);
