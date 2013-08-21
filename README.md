@@ -20,7 +20,7 @@ require('dns-gracefull-stack-switch')(6);
 require('dns-gracefull-stack-switch')(null, true);
 ```
 
-This module returns function, with one argument: default IP stack version. After executing dns.lookup will be loaded with ```require``` and ```lookup``` method will be replaced.
+This module returns ```function(defaultVersion, remove)```. After executing dns.lookup will be loaded with ```require``` and ```lookup``` method will be replaced.
 
 ### Node.JS way
 
