@@ -22,8 +22,8 @@ require('dns-gracefull-stack-switch')(null, true);
 
 This module returns ```function(defaultVersion, remove)```. 
 
-    * defaultVersion - IP stack version that will be used first to lookup address. If it fails - another will be used. Defaults to `4`.
-    * remove - remove monkeypatch. Defaults to `false`.
+ * ```defaultVersion``` - IP stack version that will be used first to lookup address. If it fails - another will be used. Defaults to `4`.
+ * ```remove``` - remove monkeypatch. Defaults to `false`.
 
 After executing dns.lookup will be loaded with ```require``` and ```lookup``` method will be replaced.
 
