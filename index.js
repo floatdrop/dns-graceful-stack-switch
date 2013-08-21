@@ -1,7 +1,7 @@
 var dns = require('dns');
 var lookup;
 
-module.export = function(defaultVersion) {
+module.exports = function(defaultVersion) {
 
 	if (lookup)
 		return;
