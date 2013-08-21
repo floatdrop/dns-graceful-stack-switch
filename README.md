@@ -1,52 +1,27 @@
-dns-sync [![Build Status](https://travis-ci.org/floatdrop/dns-sync.png?branch=master)](https://travis-ci.org/floatdrop/dns-sync)
+dns-gracefull-stack-switch [![Build Status](https://travis-ci.org/floatdrop/dns-gracefull-stack-switch.png?branch=master)](https://travis-ci.org/floatdrop/dns-gracefull-stack-switch)
 ========
 
-Synchronous DNS for node.js.
+Monkey patch DNS lookup method for node.js.
 
 ### Why?
 
-If you used node dns module with disabled IPv4 - you got exception (ENETUNREACH), but ```ping6 __address__``` working fine. In most cases __address__ was stored in configs (like config.js):
+If you used node dns module with disabled IPv4 - you got exception (ENETUNREACH), but ```ping6 __address__``` working fine. 
+
+To fix this error with minimal amount of code (you still can use [```dns.resolve6```](http://nodejs.org/docs/v0.8.25/api/dns.html#dns_dns_resolve6_domain_callback) and get valid IPv6 addresses) - monkey patched lookup method was written.
+
+### How?
 
 ```javascript
-{
-	// ...
-	database: "hostname.that.resolves.in.ipv6.net"	
-	// ...
-}
+
+require('dns-gracefull-stack-switch')(6);
+
 ```
 
-To fix this error with minimal amount of code (you still can use [```dns.resolve6```](http://nodejs.org/docs/v0.8.25/api/dns.html#dns_dns_resolve6_domain_callback) and get valid IPv6 addresses, but asynchronous way) - synchronous dns binding was created.
+This module returns function, with one argument: default IP stack version. After executing dns.lookup will be loaded with ```require``` and ```lookup``` method will be replaced.
 
-```javascript
-{
-	// ...
-	database: require('dns-sync').resolve("hostname.that.resolves.in.ipv6.net")	
-	// ...
-}
-```
+### Node.JS way
 
-### To build:
-
-Prerequisites (Unix only):
-
-    * GCC 4.2 or newer
-    * Python 2.6 or 2.7
-    * GNU Make 3.81 or newer
-    * libexecinfo (FreeBSD and OpenBSD only)
-
-Unix/Macintosh:
-
-    ./configure
-    make
-    make install
-
-If your python binary is in a non-standard location or has a
-non-standard name, run the following instead:
-
-    export PYTHON=/path/to/python
-    $PYTHON ./configure
-    make
-    make install
+This bug was "[pathced](https://github.com/joyent/node/commit/edd2fcccf022c7014b374674012283422faa1bed)" in Node.js, but magic option in ```net.connect``` not released yet.
 
 ### To run the tests:
 
