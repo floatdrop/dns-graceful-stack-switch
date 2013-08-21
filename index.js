@@ -3,13 +3,13 @@ var lookup;
 
 module.exports = function(defaultVersion, remove) {
 
-	if (remove && lookup) { 
+	if (remove && dns.lookup._wrapped) { 
 		dns.lookup = lookup;
 		lookup = undefined;
 		return;
 	}
 
-	if (lookup)
+	if (dns.lookup._wrapped)
 		return;
 
 	defaultVersion = defaultVersion || 4;
@@ -37,4 +37,6 @@ module.exports = function(defaultVersion, remove) {
 			}
 		});
 	};
+
+	dns.lookup._wrapped = true;
 };
