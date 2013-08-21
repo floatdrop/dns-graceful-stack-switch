@@ -1,5 +1,7 @@
-dns-gracefull-stack-switch [![Build Status](https://travis-ci.org/floatdrop/dns-gracefull-stack-switch.png?branch=master)](https://travis-ci.org/floatdrop/dns-gracefull-stack-switch)
+dns-gracefull-stack-switch 
 ========
+
+[![Build Status](https://travis-ci.org/floatdrop/dns-gracefull-stack-switch.png?branch=master)](https://travis-ci.org/floatdrop/dns-gracefull-stack-switch) [![NPM version](https://badge.fury.io/js/dns-gracefull-stack-switch.png)](http://badge.fury.io/js/dns-gracefull-stack-switch)
 
 Monkey patch DNS lookup method for node.js.
 
