@@ -14,7 +14,10 @@ To fix this error with minimal amount of code (you still can use [```dns.resolve
 ### How?
 
 ```javascript
+// Mokey patch
 require('dns-gracefull-stack-switch')(6);
+// Remove mokey patch
+require('dns-gracefull-stack-switch')(null, true);
 ```
 
 This module returns function, with one argument: default IP stack version. After executing dns.lookup will be loaded with ```require``` and ```lookup``` method will be replaced.

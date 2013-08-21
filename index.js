@@ -1,7 +1,13 @@
 var dns = require('dns');
 var lookup;
 
-module.exports = function(defaultVersion) {
+module.exports = function(defaultVersion, remove) {
+
+	if (remove && lookup) { 
+		dns.lookup = lookup;
+		lookup = undefined;
+		return;
+	}
 
 	if (lookup)
 		return;
