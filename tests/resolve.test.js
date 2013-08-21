@@ -32,6 +32,7 @@ describe("Test resolving", function() {
 		var tasks = 2;
 
 		dns.resolve4('www.yandex.ru', function(err, addresses) {
+			if (err) done(err);
 			ipv4 = addresses;
 			ipv4.sort();
 			tasks -= 1;
@@ -39,6 +40,7 @@ describe("Test resolving", function() {
 		});
 
 		dns.resolve6('www.yandex.ru', function(err, addresses) {
+			if (err) done(err);
 			ipv6 = addresses;
 			ipv6.sort();
 			tasks -= 1;
