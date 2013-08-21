@@ -1,7 +1,7 @@
 {
   "name": "dns-gracefull-stack-switch",
   "preferGlobal": false,
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": "Vsevolod Strukchinsky <floatdrop@gmail.com>",
   "description": "gracefull stack switching in dns.lookup",
   "contributors": [ 
