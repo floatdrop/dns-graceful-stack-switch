@@ -28,10 +28,19 @@ module.exports = function(defaultVersion, remove) {
 				throw new Error('invalid argument: `family` must be 4 or 6');
 			}
 		}
-
-		lookup(domain, family || defaultVersion, function(err, address, family) {
+		var requestedFamily = family || defaultVersion;
+		lookup(domain, requestedFamily, function(err, address, family) {
 			if (err) {
-				lookup(domain, family === 4 ? 6 : 4, callback);
+				var prevError = "IPv" + requestedFamily + " " + err + "; ";
+				var otherFamily = requestedFamily === 4 ? 6 : 4;
+				lookup(domain, otherFamily, function(err, address, family) { 
+					if (err) { 
+						err = prevError + "IPv" + otherFamily + " " + err;
+						callback(err, address, family);
+					} else { 
+						callback(err, address, family);
+					}
+				});
 			} else {
 				callback(err, address, family);
 			}
