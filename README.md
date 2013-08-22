@@ -30,7 +30,7 @@ After executing dns.lookup will be loaded with ```require``` and ```lookup``` me
 
 ### Node.JS way
 
-This bug was "[patched](https://github.com/joyent/node/commit/edd2fcccf022c7014b374674012283422faa1bed)" in Node.js, but magic option in ```net.connect``` not released yet.
+This bug was "[patched](https://github.com/joyent/node/commit/edd2fcccf022c7014b374674012283422faa1bed)" in Node.js, but magic option in ```net.connect``` (which gives you ability to write right http.Agent) released only in Node.js 0.11.6.
 
 ### To run the tests:
 
