@@ -4,9 +4,9 @@ var dns = require('dns');
 var lookup;
 
 /**
- * A module that monkeypatch dns.lookup for gracefull 
+ * A module that monkeypatch dns.lookup for graceful 
  * falling to another IP stack version.
- * @module dns-gracefull-stack-switch
+ * @module dns-graceful-stack-switch
  */
 
 /**
