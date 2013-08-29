@@ -27,7 +27,7 @@ module.exports = function(defaultVersion, remove) {
 		return;
 
 	/** default version of IP stack to lookup first */
-	defaultVersion = defaultVersion || 4;
+	defaultVersion = defaultVersion || process.env.NODE_DNS_GRACEFUL_STACK_SWITCH_DEFAULT || 4;
 
 	/** store original function, in case removing */	
 	lookup = dns.lookup;
