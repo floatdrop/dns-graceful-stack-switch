@@ -1,7 +1,7 @@
-dns-gracefull-stack-switch 
+dns-graceful-stack-switch 
 ========
 
-[![Build Status](https://travis-ci.org/floatdrop/dns-gracefull-stack-switch.png?branch=master)](https://travis-ci.org/floatdrop/dns-gracefull-stack-switch) [![NPM version](https://badge.fury.io/js/dns-gracefull-stack-switch.png)](http://badge.fury.io/js/dns-gracefull-stack-switch)
+[![Build Status](https://travis-ci.org/floatdrop/dns-graceful-stack-switch.png?branch=master)](https://travis-ci.org/floatdrop/dns-graceful-stack-switch) [![NPM version](https://badge.fury.io/js/dns-graceful-stack-switch.png)](http://badge.fury.io/js/dns-graceful-stack-switch)
 
 Monkey patch DNS lookup method for node.js.
 
@@ -15,9 +15,9 @@ To fix this error with minimal amount of code (you still can use [```dns.resolve
 
 ```javascript
 // Mokey patch
-require('dns-gracefull-stack-switch')(6);
+require('dns-graceful-stack-switch')(6);
 // Remove mokey patch
-require('dns-gracefull-stack-switch')(null, true);
+require('dns-graceful-stack-switch')(null, true);
 ```
 
 This module returns ```function(defaultVersion, remove)```. 

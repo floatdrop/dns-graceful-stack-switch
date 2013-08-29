@@ -1,7 +1,7 @@
 {
-  "name": "dns-gracefull-stack-switch",
+  "name": "dns-graceful-stack-switch",
   "preferGlobal": false,
-  "version": "0.0.5",
+  "version": "0.0.6",
   "author": "Vsevolod Strukchinsky <floatdrop@gmail.com>",
   "description": "Gracefull stack switching in dns.lookup. This will fix ENETUNREACH in case you have IPv4 disabled on host, but IPv6 available.",
   "contributors": [ 
@@ -16,7 +16,7 @@
   "main": "index",
   "repository": {
     "type": "git",
-    "url": "https://github.com/floatdrop/dns-gracefull-stack-switch.git"
+    "url": "https://github.com/floatdrop/dns-graceful-stack-switch.git"
   },
   "keywords": [
     "dns",
