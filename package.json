@@ -3,7 +3,7 @@
   "preferGlobal": false,
   "version": "0.0.6",
   "author": "Vsevolod Strukchinsky <floatdrop@gmail.com>",
-  "description": "Gracefull stack switching in dns.lookup. This will fix ENETUNREACH in case you have IPv4 disabled on host, but IPv6 available.",
+  "description": "Graceful stack switching in dns.lookup. This will fix ENETUNREACH in case you have IPv4 disabled on host, but IPv6 available.",
   "contributors": [ 
     {
       "name": "Vsevolod Strukchinsky",
