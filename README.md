@@ -14,9 +14,9 @@ To fix this error with minimal amount of code (you still can use [```dns.resolve
 ### How?
 
 ```javascript
-// Mokey patch
+// Monkey patch
 require('dns-graceful-stack-switch')(6);
-// Remove mokey patch
+// Remove monkey patch
 require('dns-graceful-stack-switch')(null, true);
 ```
 
