@@ -4,14 +4,14 @@
   "version": "0.0.7",
   "author": "Vsevolod Strukchinsky <floatdrop@gmail.com>",
   "description": "Graceful stack switching in dns.lookup. This will fix ENETUNREACH in case you have IPv4 disabled on host, but IPv6 available.",
-  "contributors": [ 
+  "contributors": [
     {
       "name": "Vsevolod Strukchinsky",
       "email": "floatdrop@gmail.com"
-    } 
+    }
   ],
   "scripts": {
-    "test": "make test"
+    "test": "mocha -t 10000 tests"
   },
   "main": "index",
   "repository": {
@@ -20,17 +20,17 @@
   },
   "keywords": [
     "dns",
-	"IPv6",
-	"IPv4",
-	"stack",
-	"ENETUNREACH"
+    "IPv6",
+    "IPv4",
+    "stack",
+    "ENETUNREACH"
   ],
   "dependencies" : {
   },
   "analyze": false,
   "devDependencies": {
-    "mocha"		:  "1.12.0",
-    "chai"		:  "0.2.0"
+    "mocha":  "1.12.0",
+    "chai":  "0.2.0"
   },
   "license": "MIT",
   "engines": {
