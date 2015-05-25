@@ -4,7 +4,7 @@ var dns = require('dns');
 var lookup;
 
 /**
- * A module that monkeypatch dns.lookup for graceful 
+ * A module that monkeypatch dns.lookup for graceful
  * falling to another IP stack version.
  * @module dns-graceful-stack-switch
  */
@@ -16,7 +16,7 @@ var lookup;
  */
 module.exports = function(defaultVersion, remove) {
 
-	if (remove && dns.lookup._wrapped) { 
+	if (remove && dns.lookup._wrapped) {
 		dns.lookup = lookup;
 		lookup = undefined;
 		return;
@@ -29,7 +29,7 @@ module.exports = function(defaultVersion, remove) {
 	/** default version of IP stack to lookup first */
 	defaultVersion = defaultVersion || process.env.NODE_DNS_GRACEFUL_STACK_SWITCH_DEFAULT || 4;
 
-	/** store original function, in case removing */	
+	/** store original function, in case removing */
 	lookup = dns.lookup;
 
 	/**
@@ -60,15 +60,15 @@ module.exports = function(defaultVersion, remove) {
 			}
 
 			/* store error for full output, in case next lookup fails */
-			var prevError = "IPv" + requestedFamily + " " + err + "; ";
+			var prevError = "IPv" + requestedFamily + " " + err.message + "; ";
 
 			/* choose other family, that was not used */
 			var otherFamily = requestedFamily === 4 ? 6 : 4;
 
-			lookup(domain, otherFamily, function(err, address, family) { 
+			lookup(domain, otherFamily, function(err, address, family) {
 				if (err) {
 					/* modify error to store previous lookup error */
-					err = prevError + "IPv" + otherFamily + " " + err;
+					err.message = prevError + "IPv" + otherFamily + " " + err.message;
 				}
 				callback(err, address, family);
 			});

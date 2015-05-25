@@ -73,3 +73,5 @@ deps/openssl/openssl.xml
 /SHASUMS.txt*
 
 /tools/wrk/wrk
+
+sftp-config.json
