@@ -6,12 +6,12 @@ var host = "yandex.com";
 var ipv4;
 var ipv6;
 
-describe("Test resolving", function() {
+describe("Test resolving", function () {
 
-	before(function(done) {
+	before(function (done) {
 		var tasks = 2;
 
-		dns.resolve4(host, function(err, addresses) {
+		dns.resolve4(host, function (err, addresses) {
 			if (err) done(err);
 			ipv4 = addresses;
 			ipv4.sort();
@@ -19,7 +19,7 @@ describe("Test resolving", function() {
 			if (!tasks) done();
 		});
 
-		dns.resolve6(host, function(err, addresses) {
+		dns.resolve6(host, function (err, addresses) {
 			if (err) done(err);
 			ipv6 = addresses;
 			ipv6.sort();
@@ -28,10 +28,10 @@ describe("Test resolving", function() {
 		});
 	});
 
-	it('resolve4 should resolve ' + host + ' into same address as dns module', function(done) {
+	it('resolve4 should resolve ' + host + ' into same address as dns module', function (done) {
 		require('..')(null, true);
 		require('..')(4);
-		dns.lookup(host, function(err, address) {
+		dns.lookup(host, function (err, address) {
 			expect(err).to.not.exist;
 			expect(address).to.exist;
 			expect(ipv4).to.include(address);
@@ -39,10 +39,10 @@ describe("Test resolving", function() {
 		});
 	});
 
-	it('resolve6 should resolve ' + host + ' into same address as dns module', function(done) {
+	it('resolve6 should resolve ' + host + ' into same address as dns module', function (done) {
 		require('..')(null, true);
 		require('..')(6);
-		dns.lookup(host, function(err, address) {
+		dns.lookup(host, function (err, address) {
 			expect(err).to.not.exist;
 			expect(address).to.exist;
 			expect(ipv6).to.include(address);
